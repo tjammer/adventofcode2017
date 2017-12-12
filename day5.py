@@ -1097,3 +1097,8 @@ inp = """1
 -674
 -647"""
 jumplist = list(map(int, inp.split('\n')))
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(jumplist)))
+    print('part_two: {}'.format(part_two(jumplist)))

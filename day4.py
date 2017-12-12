@@ -526,3 +526,8 @@ cbok koumkad otpozb pqcs emilpe wpcyvxd bock
 spjb xkkak anuvk ejoklh nyerw bsjp zxuq vcwitnd xxtjmjg zfgq xkpf
 juo pmiyoh xxk myphio ogfyf dovlmwm moevao qqxidn"""
 lines = inp.split('\n')
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(lines)))
+    print('part_two: {}'.format(part_two(lines)))

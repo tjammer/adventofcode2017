@@ -33,3 +33,8 @@ inp = """414	382	1515	319	83	1327	116	391	101	749	1388	1046	1427	105	1341	1590
 146	1116	153	815	2212	2070	599	3018	2640	47	125	2292	165	2348	2694	184
 1704	2194	1753	146	2063	1668	1280	615	163	190	2269	1856	150	158	2250	2459"""
 arr = [list(map(int, line.split('\t'))) for line in inp.split('\n')]
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(arr)))
+    print('part_two: {}'.format(part_two(arr)))

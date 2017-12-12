@@ -34,30 +34,33 @@ def notequal(a, b):
     return a != b
 
 
-def part_one(inp):
-    conds = {'<': smaller,
-             '>': greater,
-             '<=': smallereq,
-             '>=': greatereq,
-             '==': equal,
-             '!=': notequal}
-    actions = {'inc': inc,
-             'dec': dec}
-
-    def build_registers(inp):
-        registers = {}
-        for line in inp.split('\n'):
-            reg, action, val, _, condreg, cond, condval = line.split(' ')
-            registers[reg] = 0
-            registers[condreg] = 0
-        return registers
-    registers = build_registers(inp)
+conds = {'<': smaller,
+         '>': greater,
+         '<=': smallereq,
+         '>=': greatereq,
+         '==': equal,
+         '!=': notequal}
+actions = {'inc': inc,
+         'dec': dec}
 
 
-    def parse_line(line, registers, conds, actions):
+def build_registers(inp):
+    registers = {}
+    for line in inp.split('\n'):
         reg, action, val, _, condreg, cond, condval = line.split(' ')
-        if conds[cond](registers[condreg], int(condval)):
-            registers[reg] = actions[action](registers[reg], int(val))
+        registers[reg] = 0
+        registers[condreg] = 0
+    return registers
+
+
+def parse_line(line, registers, conds, actions):
+    reg, action, val, _, condreg, cond, condval = line.split(' ')
+    if conds[cond](registers[condreg], int(condval)):
+        registers[reg] = actions[action](registers[reg], int(val))
+
+
+def part_one(inp):
+    registers = build_registers(inp)
 
     for line in inp.split('\n'):
         parse_line(line, registers, conds, actions)
@@ -66,29 +69,7 @@ def part_one(inp):
 
 
 def part_two(inp):
-    conds = {'<': smaller,
-             '>': greater,
-             '<=': smallereq,
-             '>=': greatereq,
-             '==': equal,
-             '!=': notequal}
-    actions = {'inc': inc,
-             'dec': dec}
-
-    def build_registers(inp):
-        registers = {}
-        for line in inp.split('\n'):
-            reg, action, val, _, condreg, cond, condval = line.split(' ')
-            registers[reg] = 0
-            registers[condreg] = 0
-        return registers
     registers = build_registers(inp)
-
-
-    def parse_line(line, registers, conds, actions):
-        reg, action, val, _, condreg, cond, condval = line.split(' ')
-        if conds[cond](registers[condreg], int(condval)):
-            registers[reg] = actions[action](registers[reg], int(val))
 
     highest = 0
     for line in inp.split('\n'):
@@ -1099,3 +1080,8 @@ s inc 949 if y >= -3196
 fk dec -576 if ntq != -2514
 y dec 373 if ntq == -2512
 e inc -223 if ku >= 3325"""
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(inp)))
+    print('part_two: {}'.format(part_two(inp)))

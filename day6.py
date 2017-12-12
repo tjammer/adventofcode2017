@@ -1,17 +1,18 @@
+def argmax(banks):
+    mx = max(banks)
+    for i, bank in enumerate(banks):
+        if bank == mx:
+            return i
+
+def redistribute(banks, index):
+    count = banks[index]
+    for i in range(count):
+        banks[((index+1) + i) % len(banks)] += 1
+    banks[index] -= count
+    return banks
+
+
 def part_one(banks):
-    def argmax(banks):
-        mx = max(banks)
-        for i, bank in enumerate(banks):
-            if bank == mx:
-                return i
-
-    def redistribute(banks, index):
-        count = banks[index]
-        for i in range(count):
-            banks[((index+1) + i) % len(banks)] += 1
-        banks[index] -= count
-        return banks
-
     ctr = 0
     past_banks = []
     while True:
@@ -24,19 +25,6 @@ def part_one(banks):
 
 
 def part_two(banks):
-    def argmax(banks):
-        mx = max(banks)
-        for i, bank in enumerate(banks):
-            if bank == mx:
-                return i
-
-    def redistribute(banks, index):
-        count = banks[index]
-        for i in range(count):
-            banks[((index+1) + i) % len(banks)] += 1
-        banks[index] -= count
-        return banks
-
     ctr = 0
     past_banks = []
     while True:
@@ -51,3 +39,8 @@ def part_two(banks):
 
 inp = """10	3	15	10	5	15	5	15	9	2	5	8	5	2	3	6"""
 banks = list(map(int, inp.split()))
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(banks)))
+    print('part_two: {}'.format(part_two(banks)))

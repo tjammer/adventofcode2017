@@ -63,3 +63,8 @@ def part_two(threshold):
 
 
 inp = 349975
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(inp)))
+    print('part_two: {}'.format(part_two(inp)))

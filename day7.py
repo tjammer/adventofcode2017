@@ -1276,3 +1276,8 @@ yddky (53)
 cblanil (197)
 anujsv (71)
 wkvfo (177) -> muaiipe, nctisdd, tdyqxhp"""
+
+
+if __name__ == '__main__':
+    print('part_one: {}'.format(part_one(inp)))
+    print('part_two: {}'.format(part_two(inp)))
